@@ -10,18 +10,12 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@Configuration
 @RestController
 @SpringBootApplication
 public class SsoApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SsoApplication.class, args);
-	}
-
-	@RequestMapping("/message")
-	public Map<String, Object> dashboard() {
-		return Collections.<String, Object>singletonMap("message", "Yay!");
 	}
 
 	@RequestMapping("/user")
