@@ -14,13 +14,15 @@ jobs:
     runs-on: self-hosted
     container: maven:latest
     steps:  
-    - name: Build with Maven
-      run: mvn -B package --file pom.xml
-    - name: Create a Release
-      uses: actions/create-release@v1.1.4
-      with:
-        # The name of the tag. This should come from the webhook payload, `github.GITHUB_REF` when a user pushes a new tag
-        tag_name:  tag. ${{ github.ref }}
-        # The name of the release. For example, `Release v1.0.1`
-        release_name: Release ${{ github.ref }}
+      - name: me da dados
+        run: env && ls -la
+      - name: Build with Maven
+        run: mvn install
+      - name: Create a Release
+        uses: actions/create-release@v1.1.4
+        with:
+          # The name of the tag. This should come from the webhook payload, `github.GITHUB_REF` when a user pushes a new tag
+          tag_name:  tag. ${{ github.ref }}
+          # The name of the release. For example, `Release v1.0.1`
+          release_name: Release ${{ github.ref }}
     
