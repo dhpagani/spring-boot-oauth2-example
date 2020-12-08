@@ -12,12 +12,8 @@ on:
 jobs:
   build:
     runs-on: self-hosted
-    steps:
-    - uses: actions/checkout@v2
-    - name: Set up JDK 1.8
-      uses: actions/setup-java@v1
-      with:
-        java-version: 1.8
+    container: maven:latest
+    steps:  
     - name: Build with Maven
       run: mvn -B package --file pom.xml
     - name: Create a Release
