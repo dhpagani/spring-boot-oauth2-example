@@ -15,7 +15,7 @@ jobs:
     container: maven:latest
     steps:  
       - name: me da dados
-        run: env && ls -la
+        run: env && ls -la && pwd
       - name: Build with Maven
         run: mvn install
       - name: Create a Release
