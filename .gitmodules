@@ -1,0 +1,3 @@
+[submodule ".github/workflows"]
+	path = .github/workflows
+	url = git@github.com:dhpagani/spring-boot-oauth2-workflows.git
