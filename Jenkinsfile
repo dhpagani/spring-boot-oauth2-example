@@ -4,12 +4,13 @@ pipeline {
       stage('env') { 
         agent any
         steps { 
-        sh 'env'
+          sh 'env'
         }
       }
          stage('Build') {
             agent { docker{ 
                image 'maven:3-alpine' 
+               customWorkspace ${WORKSPACE}/${BUILD_NUMBER}
               }
             }
             steps {
@@ -28,6 +29,11 @@ pipeline {
                   echo "Funcionou de buenas"
                 }
             }
-        }
+        } 
+    }
+    post { 
+      always {
+          cleanWs()
+      }
     }
 }
