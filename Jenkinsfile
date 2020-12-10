@@ -2,13 +2,14 @@ pipeline {
   agent none
     stages {
       stage('env') { 
+        steps { 
         sh 'env'
+        }
       }
          stage('Build') {
             agent { docker{ 
                image 'maven:3-alpine' 
-               args '-v "${WORKSPACE}":/project -w /project'               
-            }
+              }
             }
             steps {
                 // Get some code from a GitHub repository
