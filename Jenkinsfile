@@ -14,18 +14,6 @@ pipeline {
                 sh 'env'
                 sh 'ls -la'
                 sh 'mvn compile'
-
-                post {
-                  success {
-                    echo "Funcionou de buenas"
-                  }
-                  always {
-                      cleanWs()
-                  }
-                }
-            }
-
-            
         } 
     }
     
