@@ -2,6 +2,7 @@ pipeline {
   agent none
     stages {
       stage('env') { 
+        agent any
         steps { 
         sh 'env'
         }
