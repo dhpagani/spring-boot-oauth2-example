@@ -3,8 +3,8 @@ pipeline {
     stages {      
          stage('Build') {
             agent { docker{ 
+               customWorkspace "${BUILD_NUMBER}"
                image 'maven:3-alpine' 
-               customWorkspace "${WORKSPACE}/${BUILD_NUMBER}"
               }
             }
             steps {
