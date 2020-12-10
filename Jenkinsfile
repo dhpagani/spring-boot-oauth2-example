@@ -1,5 +1,5 @@
 pipeline {
-  agent none
+  agent any
     stages {      
          stage('Build') {
             agent { docker{ 
@@ -15,6 +15,15 @@ pipeline {
                 sh 'ls -la'
                 sh 'mvn compile'
         } 
-    }
+    }    
+  }
+  post {
+          success {
+            echo "Funcionou de buenas"
+          }
+          always {
+              cleanWs()
+          }
+  }  
     
-}}
+}
