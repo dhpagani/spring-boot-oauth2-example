@@ -1,12 +1,9 @@
 pipeline {
-    agent docker{}
     stages {
-        stage('Build') { 
+        stage('Build') {
             agent docker {
-               
-                  image 'maven:3-alpine' 
-                args '-v "$(pwd)":/project -w /project'
-               }
+               image 'maven:3-alpine' 
+               args '-v "$(pwd)":/project -w /project'               
             }
             steps {
                 // Get some code from a GitHub repository
