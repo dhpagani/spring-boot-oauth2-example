@@ -19,15 +19,14 @@ pipeline {
                   success {
                     echo "Funcionou de buenas"
                   }
-            }
+                  always {
+                      cleanWs()
+                  }
+                }
             }
 
             
         } 
     }
-    post { 
-      always {
-          cleanWs()
-      }
-    }
+    
 }
