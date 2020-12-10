@@ -4,14 +4,14 @@ pipeline {
         stage('Build') {
             agent { docker{ 
                image 'maven:3-alpine' 
-               args '-v "$(pwd)":/project -w /project'               
+               args '-v "${WORKSPACE}":/project -w /project'               
             }
             }
             steps {
                 // Get some code from a GitHub repository
                 git 'https://github.com/dhpagani/spring-boot-oauth2-example.git'
                 echo "Hello world!"
-                
+                sh 'env'
                 sh 'ls -la'
                 sh 'mvn compile'
             }
