@@ -7,7 +7,7 @@ pipeline {
                     image 'maven:3-alpine' 
                     args '-v "${WORKSPACE}-m2":/root/.m2'
                     reuseNode true
-                }
+                } 
             }
             steps {
                 // Get some code from a GitHub repository
