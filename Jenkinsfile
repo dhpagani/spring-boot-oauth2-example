@@ -3,11 +3,11 @@ pipeline {
     stages {      
          stage('Build') {
             agent { 
-              docker{ 
-                 image 'maven:3-alpine' 
-                 args '-v maven-dependencies:/root/.m2'
-                 reuseNode true
-              }
+                docker{ 
+                    image 'maven:3-alpine' 
+                    args '-v maven-dependencies:/root/.m2'
+                    reuseNode true
+                }
             }
             steps {
                 // Get some code from a GitHub repository
