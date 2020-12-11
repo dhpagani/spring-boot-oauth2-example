@@ -16,7 +16,10 @@ pipeline {
                 sh 'env'
                 sh 'ls -la'
                 sh 'echo ${WORKSPACE}'
-                sh 'mvn compile' 
+                withMaven(){
+                    sh 'mvn compile';
+                }
+                
           } 
       }    
   }
