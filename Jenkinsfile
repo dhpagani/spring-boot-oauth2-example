@@ -25,18 +25,8 @@ pipeline {
           }
           cleanup {
               cleanWs()
-              /* clean up our workspace */
-              dir("${workspace}") {
-                  deleteDir()
-              }
-              /* clean up tmp directory */
-              dir("${workspace}@tmp") {
-                  deleteDir()
-              }
-              /* clean up script directory */
-              dir("${workspace}@script") {
-                  deleteDir()
-              }
+              sh 'rm -rf ${workspace}'
+              sh 'rm -rf ${workspace}@tmp'
           }
   }  
     
