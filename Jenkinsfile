@@ -18,6 +18,7 @@ pipeline {
                 withMaven( { mavenLocalRepo: '.repository' }){
                     sh 'mvn compile';
                 }
+                 sh 'ls -la'
                 
           } 
       }    
