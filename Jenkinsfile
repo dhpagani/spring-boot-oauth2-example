@@ -25,8 +25,8 @@ pipeline {
           }
           cleanup {
               cleanWs()
-              sh 'rm -rf ${workspace}'
-              sh 'rm -rf ${workspace}@tmp'
+              sh 'rm -rf ${WORKSPACE}'
+              sh 'rm -rf ${WORKSPACE}@tmp'
           }
   }  
     
