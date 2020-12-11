@@ -22,9 +22,9 @@ pipeline {
             echo "Funcionou de buenas"
           }
           always {
-              cleanWs()
-              deleteDir {
-                dir "workspace/${BUILD_TAG}/"
+              cleanWs()              
+              dir "workspace/${BUILD_TAG}/" {
+                  deleteDir()
               }
           }
   }  
