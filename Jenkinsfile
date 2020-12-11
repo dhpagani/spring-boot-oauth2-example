@@ -9,7 +9,7 @@ pipeline {
             }
             steps {
                 // Get some code from a GitHub repository
-                git 'https://github.com/dhpagani/spring-boot-oauth2-example.git'
+                // git 'https://github.com/dhpagani/spring-boot-oauth2-example.git'
                 echo "Hello world!"
                 sh 'env'
                 sh 'ls -la'
