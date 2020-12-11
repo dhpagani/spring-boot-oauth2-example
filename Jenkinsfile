@@ -23,6 +23,7 @@ pipeline {
           }
           always {
               cleanWs()
+              deleteDir()
           }
   }  
     
