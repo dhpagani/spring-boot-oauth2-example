@@ -1,5 +1,5 @@
 pipeline {
-  agent any {
+  agent label {
     customWorkspace "workspace/${BUILD_TAG}"
   }
     stages {      
@@ -23,11 +23,9 @@ pipeline {
           success {
             echo "Funcionou de buenas"
           }
-          always {
-              cleanWs()
-              deleteDir {
-                dir "workspace/${BUILD_TAG}"
-              }
+          always {              
+              sh  "rm -rf workspace/${BUILD_TAG}"
+              
           }
   }  
     
