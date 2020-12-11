@@ -13,7 +13,7 @@ pipeline {
                 echo "Hello world!"
                 sh 'env'
                 sh 'ls -la'
-                sh 'mvn compile'
+               // sh 'mvn compile'
         } 
     }    
   }
@@ -24,7 +24,7 @@ pipeline {
           always {
               cleanWs()
               deleteDir {
-                dir "workspace/${BUILD_TAG}"
+                dir "workspace/${BUILD_TAG}/"
               }
           }
   }  
