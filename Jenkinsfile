@@ -1,9 +1,11 @@
 pipeline {
-  agent any
+  agent {
+    customWorkspace "workspace/${BUILD_TAG}"
+  }
     stages {      
          stage('Build') {
             agent { docker{ 
-               customWorkspace "workspace/${BUILD_TAG}"
+               
                image 'maven:3-alpine' 
               }
             }
@@ -13,7 +15,7 @@ pipeline {
                 echo "Hello world!"
                 sh 'env'
                 sh 'ls -la'
-               // sh 'mvn compile'
+                sh 'mvn compile'
         } 
     }    
   }
@@ -22,9 +24,9 @@ pipeline {
             echo "Funcionou de buenas"
           }
           always {
-              cleanWs()              
-              dir("workspace/${BUILD_TAG}/") {
-                  deleteDir()
+              cleanWs()
+              deleteDir {
+                dir "workspace/${BUILD_TAG}"
               }
           }
   }  
