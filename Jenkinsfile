@@ -5,6 +5,7 @@ pipeline {
             agent { 
                 docker{ 
                     image 'maven:3-alpine' 
+                    args '-v "${WORKSPACE}-m2":/root/.m2'
                     reuseNode true
                 }
             }
@@ -15,11 +16,7 @@ pipeline {
                 sh 'env'
                 sh 'ls -la'
                 sh 'echo ${WORKSPACE}'
-                withMaven( { mavenLocalRepo: '.repository' }){
-                    sh 'mvn compile';
-                }
-                 sh 'ls -la'
-                
+                sh 'mvn compile' 
           } 
       }    
   }
