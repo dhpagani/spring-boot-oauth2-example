@@ -1,5 +1,5 @@
 pipeline {
-  agent docker {  customWorkspace "/jenkins/workspace/${BUILD_TAG}" }
+  agent  { docker{ customWorkspace "/jenkins/workspace/${BUILD_TAG}"} }
     stages {      
          stage('Build') {
             agent { 
