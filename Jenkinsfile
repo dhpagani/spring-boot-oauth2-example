@@ -1,11 +1,9 @@
 pipeline {
-  agent label {
-    customWorkspace "workspace/${BUILD_TAG}"
-  }
+  agent any
     stages {      
          stage('Build') {
             agent { docker{ 
-               
+                 customWorkspace "workspace/${BUILD_TAG}"
                image 'maven:3-alpine' 
               }
             }
@@ -24,8 +22,7 @@ pipeline {
             echo "Funcionou de buenas"
           }
           always {              
-              sh  "rm -rf workspace/${BUILD_TAG}"
-              
+              sh  "rm -rf workspace/${BUILD_TAG}"              
           }
   }  
     
