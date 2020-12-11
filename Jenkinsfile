@@ -1,10 +1,9 @@
 pipeline {
-  agent any
+  agent docker {  customWorkspace "/jenkins/workspace/${BUILD_TAG}" }
     stages {      
          stage('Build') {
             agent { 
-              docker{ 
-                 customWorkspace "/jenkins/workspace/${BUILD_TAG}"
+              docker{                 
                  image 'maven:3-alpine' 
               }
             }
@@ -25,7 +24,7 @@ pipeline {
           }
           cleanup {
              /* clean up our workspace */
-            deleteDir()
+            deleteDir() 
             /* clean up tmp directory */
             dir("${workspace}@tmp") {
                 deleteDir()
