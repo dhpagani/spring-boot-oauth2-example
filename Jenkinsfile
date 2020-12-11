@@ -23,7 +23,9 @@ pipeline {
           }
           always {
               cleanWs()
-              deleteDir()
+              deleteDir {
+                dir "workspace/${BUILD_TAG}"
+              }
           }
   }  
     
