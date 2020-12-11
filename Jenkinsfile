@@ -1,5 +1,5 @@
 pipeline {
-  agent {
+  agent any {
     customWorkspace "workspace/${BUILD_TAG}"
   }
     stages {      
