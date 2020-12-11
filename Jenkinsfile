@@ -14,7 +14,7 @@ pipeline {
                 sh 'env'
                 sh 'ls -la'
                 sh 'echo ${WORKSPACE}'
-                // sh 'mvn compile'
+                // sh 'mvn compile' 
         } 
     }    
   }
@@ -23,18 +23,18 @@ pipeline {
             echo "Funcionou de buenas"
           }
           cleanup {
-            /* clean up our workspace */
-            dir("${workspace}") {
-                deleteDir()
-            }
-            /* clean up tmp directory */
-            dir("${workspace}@tmp") {
-                deleteDir()
-            }
-            /* clean up script directory */
-            dir("${workspace}@script") {
-                deleteDir()
-            }
+              /* clean up our workspace */
+              dir("${workspace}") {
+                  deleteDir()
+              }
+              /* clean up tmp directory */
+              dir("${workspace}@tmp") {
+                  deleteDir()
+              }
+              /* clean up script directory */
+              dir("${workspace}@script") {
+                  deleteDir()
+              }
           }
   }  
     
