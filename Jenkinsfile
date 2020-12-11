@@ -22,12 +22,11 @@ pipeline {
           success {
             echo "Funcionou de buenas"
           }
-          always {              
-              sh  "rm -rf workspace/${BUILD_TAG}"              
-          }
           cleanup {
             /* clean up our workspace */
-            deleteDir()
+            dir("${workspace}") {
+                deleteDir()
+            }
             /* clean up tmp directory */
             dir("${workspace}@tmp") {
                 deleteDir()
