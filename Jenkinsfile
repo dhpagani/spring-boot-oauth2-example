@@ -1,9 +1,9 @@
 pipeline {
-  agent  { docker{ customWorkspace "/jenkins/workspace/${BUILD_TAG}"} }
+  agent any
     stages {      
          stage('Build') {
             agent { 
-              docker{                 
+              docker{ 
                  image 'maven:3-alpine' 
               }
             }
