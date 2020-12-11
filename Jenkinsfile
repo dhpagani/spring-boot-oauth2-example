@@ -5,7 +5,8 @@ pipeline {
             agent { 
               docker{ 
                  image 'maven:3-alpine' 
-                  reuseNode true
+                 args '-v maven-dependencies:/root/.m2'
+                 reuseNode true
               }
             }
             steps {
