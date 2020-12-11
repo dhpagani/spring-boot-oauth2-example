@@ -23,7 +23,7 @@ pipeline {
           }
           always {
               cleanWs()              
-              dir "workspace/${BUILD_TAG}/" {
+              dir("workspace/${BUILD_TAG}/") {
                   deleteDir()
               }
           }
