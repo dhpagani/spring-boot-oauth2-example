@@ -18,8 +18,7 @@ pipeline {
                 sh 'echo ${WORKSPACE}'
                 sh 'mvn compile' 
           } 
-      } ,
-
+      } 
       stage('Unit test')  {
         agent { 
                 docker{ 
