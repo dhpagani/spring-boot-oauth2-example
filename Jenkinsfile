@@ -1,3 +1,5 @@
-library 'batata@master'
+#!/usr/bin/env groovy
 
-mypipeline {stage('xablau'){ script { log.info 'olar '}}} 
+libraries{
+    maven    
+}
