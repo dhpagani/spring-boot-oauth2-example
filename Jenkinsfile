@@ -1,3 +1,4 @@
 library 'batata@master'
-
-maven
+node{
+    maven
+}
