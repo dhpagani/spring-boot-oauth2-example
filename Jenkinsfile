@@ -1,2 +1,3 @@
 library 'batata@master'
-maven {}
+
+mypipeline {stage('xablau'){ script { log.info 'olar '}}} 
