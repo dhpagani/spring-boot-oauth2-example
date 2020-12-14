@@ -1,3 +1,3 @@
-library 'batata'
+library 'batata@master'
 
 maven
