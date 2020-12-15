@@ -1,4 +1,4 @@
-pipeline_template = 'pullrequest'
+// pipeline_template = 'pullrequest' 
 
 libraries {
     maven
