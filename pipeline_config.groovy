@@ -1,5 +1,5 @@
-pipeline_template = 'meu_amorzinho'
+pipeline_template = 'pullrequest'
 
 libraries {
     maven
-}  
+}   
