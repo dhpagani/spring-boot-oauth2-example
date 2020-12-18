@@ -1,4 +1,4 @@
- jte {pipeline_template = 'tasy.Jenkinsfile'  }
+ jte {pipeline_template = 'custom.Jenkinsfile'  }
 
 libraries {
     v1-maven 
