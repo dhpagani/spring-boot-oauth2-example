@@ -1,5 +1,7 @@
-// pipeline_template = 'pullrequest' 
+ pipeline_template = 'tasy.Jenkinsfile'  
 
 libraries {
-    maven
-}   
+    v1-maven 
+} 
+
+
