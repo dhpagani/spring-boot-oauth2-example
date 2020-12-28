@@ -2,7 +2,7 @@
 
 libraries {
     v1_maven {
-        anotherImages = [ 'maven:3-amazoncorretto-8', 'maven:ibmjava']
+        anotherImages = [ 'maven:ibmjava']
     }
 } 
 
