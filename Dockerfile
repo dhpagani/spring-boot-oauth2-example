@@ -2,7 +2,7 @@ FROM adoptopenjdk:11-jre-hotspot
 
 ARG PROJECT_ARTIFACT_PATH
 ARG PROJECT_ARTIFACT_NAME
-ARG 
+
 
 RUN mkdir -p /opt/app
 COPY ${PROJECT_ARTIFACT_PATH}/${PROJECT_ARTIFACT_NAME} /opt/app/
