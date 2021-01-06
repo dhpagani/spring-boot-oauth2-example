@@ -3,4 +3,3 @@ libraries {
         anotherImages = ['maven:ibmjava']
     }
 }
-
