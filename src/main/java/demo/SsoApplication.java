@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @SpringBootApplication
 public class SsoApplication {
-
+vamos quebrar
 	public static void main(String[] args) {
 		SpringApplication.run(SsoApplication.class, args);
 	}
