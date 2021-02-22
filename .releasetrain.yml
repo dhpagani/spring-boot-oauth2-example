@@ -1,0 +1,7 @@
+project:
+    build:
+        package:
+            name: sso.jar
+            path: target/
+    name: ss0
+    type: maven

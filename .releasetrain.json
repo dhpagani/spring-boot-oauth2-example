@@ -1,0 +1,12 @@
+{
+    "project": {
+        "name": "ss0",
+        "type": "maven",
+        "build": {
+            "package": {
+                "path": "target/",
+                "name": "sso.jar"
+            }
+        }
+    }
+}
