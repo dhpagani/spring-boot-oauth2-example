@@ -2,9 +2,6 @@ project:
     name: ss0
     type: maven
 
-build: 
-    actions: clean build assemble
-    
 tests:
     - test1:
         actions: test
