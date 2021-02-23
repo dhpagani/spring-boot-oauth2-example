@@ -3,12 +3,10 @@ project:
     type: maven
 
 build: 
-    image: openjdk:latest
     actions: clean build assemble
     
 tests:
     - test1:
-        image: openjdk:latest
         actions: test
 
 artifacts:
