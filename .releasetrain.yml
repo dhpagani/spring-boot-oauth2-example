@@ -1,7 +1,17 @@
 project:
-    build:
-        package:
-            name: sso.jar
-            path: target/
     name: ss0
     type: maven
+
+build: 
+    image: openjdk:latest
+    actions: clean build assemble
+    
+tests:
+    - test1:
+        image: openjdk:latest
+        actions: test
+
+artifacts:
+    - package:
+        name: sso.jar
+        path: target/
