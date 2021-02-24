@@ -6,7 +6,18 @@ tests:
     - test1:
         actions: test
 
-artifacts:
-    - package:
-        name: sso.jar
-        path: target/
+docker:
+    alwaysLatest: true
+    dockerfile: Dockerfile
+    tags:
+        - xablau
+        - xablau2
+
+artifacts: 
+    jenkins:
+        - name: sso.jar
+          path: target/
+    repository_management:
+        - name: sso.jar
+          path: target/
+          type: java    
