@@ -1,25 +1,85 @@
-project:
-    name: ss0
-    type: maven
+- folder: legradle
+  configuration:
+    project:
+        name: caszinho
+        type: gradle    
+    docker:
+        alwaysLatest: true
+        dockerfile: Dockerfile
+        tags:
+            - casGradle1
+    artifacts: 
+        jenkins:
+            - name: sso.jar
+              path: target/
+            - name: version.txt
+              path: ./
+        repository_management:
+            - name: sso.jar
+              path: target/
+              type: java
 
-tests:
-    - test1:
-        actions: test
+- folder: springboot
+  configuration:    
+    project:
+        name: ss0
+        type: maven
+    docker:
+        alwaysLatest: true
+        dockerfile: Dockerfile
+        tags:
+            - xablau
+            - xablau2
+    artifacts: 
+        jenkins:
+            - name: sso.jar
+              path: target/
+            - name: version.txt
+              path: ./
+        repository_management:
+            - name: sso.jar
+              path: target/
+              type: java
 
-docker:
-    alwaysLatest: true
-    dockerfile: Dockerfile
-    tags:
-        - xablau
-        - xablau2
+- folder: nodezao
+  configuration:    
+    project:
+        name: cci-ont-releasetrain-api
+        type: node
+    docker:
+        alwaysLatest: true
+        dockerfile: Dockerfile
+        tags:
+            - xablau
+            - xablau2
+    artifacts: 
+        jenkins:
+            - name: cci-ont-releasetrain-api.zip
+              path: ./
 
-artifacts: 
-    jenkins:
-        - name: sso.jar
-          path: target/
-        - name: version.txt
-          path: ./
-    repository_management:
-        - name: sso.jar
-          path: target/
-          type: java
+- folder: nodezao
+  configuration:    
+    project:
+        name: cci-ont-releasetrain-api
+        type: node
+    docker:
+        alwaysLatest: true
+        dockerfile: Dockerfile
+        tags:
+            - xablau
+            - xablau2
+    artifacts: 
+        jenkins:
+            - name: cci-ont-releasetrain-api.zip
+              path: ./
+              
+- folder: dockernode12 
+  configuration:
+    project:
+        name: cci-ont-releasetrain-docker-node
+        type: docker
+    docker:
+        alwaysLatest: true
+        dockerfile: ./src/Dockerfile
+        tags:
+            - 12
