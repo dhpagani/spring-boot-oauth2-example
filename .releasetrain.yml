@@ -17,7 +17,9 @@ artifacts:
     jenkins:
         - name: sso.jar
           path: target/
+        - name: version.txt
+          path: ./
     repository_management:
         - name: sso.jar
           path: target/
-          type: java    
+          type: java
