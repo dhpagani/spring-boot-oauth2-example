@@ -12,13 +12,13 @@
             - casGradle1
     artifacts: 
         jenkins:  
-            - name: sso.jar
-              path: target/
+            - name: cas.war
+              path: build/libs/
             - name: version.txt
               path: ./
         repository_management:
-            - name: sso.jar
-              path: target/
+            - name: cas.war
+              path: build/libs/
               type: java
  
 - folder: springboot
