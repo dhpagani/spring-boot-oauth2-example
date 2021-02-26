@@ -3,13 +3,15 @@
     project:
         name: caszinho
         type: gradle    
+    build:
+      image: gradle:jdk11
     docker:
         alwaysLatest: true
         dockerfile: Dockerfile
         tags:
             - casGradle1
     artifacts: 
-        jenkins:
+        jenkins:  
             - name: sso.jar
               path: target/
             - name: version.txt
@@ -40,22 +42,6 @@
             - name: sso.jar
               path: target/
               type: java
-
-- folder: nodezao
-  configuration:    
-    project:
-        name: cci-ont-releasetrain-api
-        type: node
-    docker:
-        alwaysLatest: true
-        dockerfile: Dockerfile
-        tags:
-            - xablau
-            - xablau2
-    artifacts: 
-        jenkins:
-            - name: cci-ont-releasetrain-api.zip
-              path: ./
 
 - folder: nodezao
   configuration:    
