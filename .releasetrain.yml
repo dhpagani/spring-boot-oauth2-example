@@ -20,7 +20,7 @@
             - name: sso.jar
               path: target/
               type: java
-
+ 
 - folder: springboot
   configuration:    
     project:
@@ -50,7 +50,7 @@
         type: node
     docker:
         alwaysLatest: true
-        dockerfile: Dockerfile
+        dockerfile: Dockerfile  
         tags:
             - xablau
             - xablau2
@@ -58,7 +58,7 @@
         jenkins:
             - name: cci-ont-releasetrain-api.zip
               path: ./
-              
+
 - folder: dockernode12 
   configuration:
     project:
