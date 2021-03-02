@@ -5,7 +5,7 @@
         type: gradle    
     container:
       image: gradle:jdk11
-    docker:
+    docker: 
         alwaysLatest: true
         dockerfile: Dockerfile
         tags:
