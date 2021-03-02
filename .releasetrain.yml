@@ -3,7 +3,7 @@
     project:
         name: caszinho
         type: gradle    
-    build:
+    container:
       image: gradle:jdk11
     docker:
         alwaysLatest: true
@@ -28,7 +28,7 @@
         type: maven
     docker:
         alwaysLatest: true
-        dockerfile: Dockerfile
+        dockerfile: Dockerfile 
         tags:
             - xablau
             - xablau2
