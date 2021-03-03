@@ -7,8 +7,8 @@
 	<groupId>org.test</groupId>
 	<artifactId>sso</artifactId>
 	<version>0.0.1-SNAPSHOT</version> 
-	<packaging>jar</packaging> 
- 
+	<packaging>jar</packaging>  
+
 	<name>sso</name>
 	<description>Demo project for Spring Boot</description>
 
