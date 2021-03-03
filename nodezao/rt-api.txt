@@ -1,0 +1,70 @@
+RT API
+-------------- gestão --------------
+/scaffold
+- id
+- template_id
+
+/scaffold/:id/workflow
+- workflow_id
+- scaffold_id
+
+/templates
+- id
+- nome do template
+- hash-commit
+- wolkflow_id
+- task_id [ entregar um ZIP ]
+
+/projects - repositórios
+- CRUD de novo projetos
+- id
+- nome
+- equipe/pessoas/contas/emails?
+- chassis_id
+- gitlab ou github (outros plugins)
+[processo de upgrade de versão de templates deve ser definido/atualizado]
+
+/projects/:id/workflow
+- project_id
+- workflow_id
+
+/project/:id/builds
+- id
+- project_id
+- branch/tag
+- status
+- duração total
+- pipeline_id
+- string identificadora qualquer (nome de estagio de build[lint, compile, package...])
+[dependendo daqui, eventos são disparados]
+
+/person
+- id
+- dados pessoas
+[eventos recebidos podem disparar notificações]
+-----------------------------------------------------
+
+/workflows
+- id workflow
+- nome do workflow
+
+/workflows/:id/stages
+- workflow_id
+- stages_id
+
+/stages
+- id
+- nome do stages
+
+/stages/:id/tasks
+- stage_id
+- tasks_id
+- confs
+
+/tasks
+- id
+- nome (sonar, lint, codescene, blackduck etc)
+- tipo (identificador interno p/ direcionar a implementação)
+- parametros (json)
+- servico_id
+- repo de origem (?)

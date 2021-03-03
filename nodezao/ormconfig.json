@@ -1,0 +1,12 @@
+{
+    "type": "oracle",
+    "username": "release_train",
+    "password": "rel#git15train",
+    "connectString": "srv-dbora-01.whebdc.com.br:1521/pdbgit",
+    "entities": [
+        "dist/**/*.entity{.ts,.js}"
+    ],
+    "autoLoadEntities": true,
+    "logging": true,
+    "synchronize": true
+}

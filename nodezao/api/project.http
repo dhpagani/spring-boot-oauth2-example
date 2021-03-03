@@ -1,0 +1,16 @@
+
+GET http://localhost:3000/projects/55
+
+###
+
+GET http://localhost:3000/projects/t
+
+###
+POST  http://localhost:3000/projects
+Content-Type: application/json
+
+{
+    "name": "macarrao"
+}
+
+#####
