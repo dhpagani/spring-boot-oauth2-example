@@ -43,17 +43,13 @@
               path: target/
               type: java
 
-- folder: nodezao
+- folder: releasetrain-api
   configuration:    
     project:
         name: cci-ont-releasetrain-api
         type: node
     docker:
-        alwaysLatest: true
-        dockerfile: Dockerfile  
-        tags:
-            - xablau
-            - xablau2
+        enable: false        
     artifacts: 
         jenkins:
             - name: cci-ont-releasetrain-api.zip
