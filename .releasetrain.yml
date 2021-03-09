@@ -19,3 +19,8 @@
         github:
             - name: cas*.war
               path: build/libs/
+            - name: version.txt
+              path: ./
+              label: 'Minha versão'
+        
+              
