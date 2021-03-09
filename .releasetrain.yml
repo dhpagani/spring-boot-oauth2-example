@@ -1,26 +1,23 @@
-- folder: legradle
-  configuration:
+- folder: springboot
+  configuration:    
     project:
-        name: caszinho
-        type: gradle    
-    container:
-      image: gradle:jdk11
-    docker: 
+        name: ss0
+        type: maven
+    docker:
         alwaysLatest: true
-        dockerfile: Dockerfile
+        dockerfile: Dockerfile 
         tags:
-            - casGradle1
+            - xablau
+            - xablau2
     artifacts: 
-        jenkins:  
-            - name: cas.war
-              path: build/libs/
+        jenkins:
+            - name: sso.jar
+              path: target/
             - name: version.txt
               path: ./
         github:
-            - name: cas*.war
-              path: build/libs/
+            - name: sso*.jar
+              path: target/
             - name: version.txt
               path: ./
               label: 'Minha versão'
-        
-              
