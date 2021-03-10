@@ -11,9 +11,13 @@
             - xablau2
     artifacts: 
         jenkins:
+            - name: sso.jar
+              path: target/
             - name: version.txt
               path: ./
-        github: 
+        github:
+            - name: sso*.jar
+              path: target/
             - name: version.txt
               path: ./
               label: 'Minha versão'
