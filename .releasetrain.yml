@@ -1,3 +1,27 @@
+- folder: legradle
+  configuration:
+    project:
+        name: caszinho
+        type: gradle    
+    container:
+      image: gradle:jdk11
+    docker: 
+        alwaysLatest: true
+        dockerfile: Dockerfile
+        tags:
+            - casGradle1
+    artifacts: 
+        jenkins:  
+            - name: cas.war
+              path: build/libs/
+            - name: version.txt
+              path: ./
+        github:
+            - name: cas.war
+              path: build/libs/
+            - name: version.txt
+              path: ./
+ 
 - folder: springboot
   configuration:    
     project:
@@ -20,4 +44,33 @@
               path: target/
             - name: version.txt
               path: ./
-              label: 'Minha versão'
+
+- folder: nodezao
+  configuration:    
+    project:
+        name: cci-ont-releasetrain-api
+        type: node
+    docker:
+        alwaysLatest: true
+        dockerfile: Dockerfile  
+        tags:
+            - xablau
+            - xablau2
+    artifacts: 
+        github:
+            - name: cci-ont-releasetrain-api.zip
+              path: ./
+              label: 'Versão completa buildada da API'
+
+- folder: dockernode12 
+  configuration:
+    project:
+        name: cci-ont-releasetrain-docker-node
+        type: docker
+    docker:
+        alwaysLatest: true
+        dockerfile: ./src/Dockerfile
+        tags:
+            - 12
+
+            
