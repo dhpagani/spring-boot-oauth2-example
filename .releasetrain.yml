@@ -45,7 +45,7 @@
             - name: version.txt
               path: ./
 
-- folder: nodezao
+- folder: releasetrain-api
   configuration:    
     project:
         name: cci-ont-releasetrain-api
