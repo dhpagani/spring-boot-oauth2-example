@@ -1,49 +1,49 @@
-- folder: legradle
-  configuration:
-    project:
-        name: caszinho
-        type: gradle    
-    container:
-      image: gradle:jdk11
-    docker: 
-        alwaysLatest: true
-        dockerfile: Dockerfile
-        tags:
-            - casGradle1
-    artifacts: 
-        jenkins:  
-            - name: cas.war
-              path: build/libs/
-            - name: version.txt
-              path: ./
-        github:
-            - name: cas.war
-              path: build/libs/
-            - name: version.txt
-              path: ./
+# - folder: legradle
+#   configuration:
+#     project:
+#         name: caszinho
+#         type: gradle    
+#     container:
+#       image: gradle:jdk11
+#     docker: 
+#         alwaysLatest: true
+#         dockerfile: Dockerfile
+#         tags:
+#             - casGradle1
+#     artifacts: 
+#         jenkins:  
+#             - name: cas.war
+#               path: build/libs/
+#             - name: version.txt
+#               path: ./
+#         github:
+#             - name: cas.war
+#               path: build/libs/
+#             - name: version.txt
+#               path: ./
  
-- folder: springboot
-  configuration:    
-    project:
-        name: ss0
-        type: maven
-    docker:
-        alwaysLatest: true
-        dockerfile: Dockerfile 
-        tags:
-            - xablau
-            - xablau2
-    artifacts: 
-        jenkins:
-            - name: sso.jar
-              path: target/
-            - name: version.txt
-              path: ./
-        github:
-            - name: sso.jar
-              path: target/
-            - name: version.txt
-              path: ./
+# - folder: springboot
+#   configuration:    
+#     project:
+#         name: ss0
+#         type: maven
+#     docker:
+#         alwaysLatest: true
+#         dockerfile: Dockerfile 
+#         tags:
+#             - xablau
+#             - xablau2
+#     artifacts: 
+#         jenkins:
+#             - name: sso.jar
+#               path: target/
+#             - name: version.txt
+#               path: ./
+#         github:
+#             - name: sso.jar
+#               path: target/
+#             - name: version.txt
+#               path: ./
 
 - folder: releasetrain-api
   configuration:    
@@ -54,8 +54,7 @@
         alwaysLatest: true
         dockerfile: Dockerfile  
         tags:
-            - xablau
-            - xablau2
+            - teste
     artifacts: 
         github:
             - name: cci-ont-releasetrain-api.zip
