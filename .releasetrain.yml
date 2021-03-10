@@ -13,7 +13,7 @@
         jenkins:
             - name: version.txt
               path: ./
-        github:
+        github: 
             - name: version.txt
               path: ./
               label: 'Minha versão'
