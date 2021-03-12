@@ -1,75 +1,69 @@
-# - folder: legradle
-#   configuration:
-#     project:
-#         name: caszinho
-#         type: gradle    
-#     container:
-#       image: gradle:jdk11
-#     docker: 
-#         alwaysLatest: true
-#         dockerfile: Dockerfile
-#         tags:
-#             - casGradle1
-#     artifacts: 
-#         jenkins:  
-#             - name: cas.war
-#               path: build/libs/
-#             - name: version.txt
-#               path: ./
-#         github:
-#             - name: cas.war
-#               path: build/libs/
-#             - name: version.txt
-#               path: ./
- 
-# - folder: springboot
-#   configuration:    
-#     project:
-#         name: ss0
-#         type: maven
-#     docker:
-#         alwaysLatest: true
-#         dockerfile: Dockerfile 
-#         tags:
-#             - xablau
-#             - xablau2
-#     artifacts: 
-#         jenkins:
-#             - name: sso.jar
-#               path: target/
-#             - name: version.txt
-#               path: ./
-#         github:
-#             - name: sso.jar
-#               path: target/
-#             - name: version.txt
-#               path: ./
+artifacts: 
+    github:
+        assets:
+          - name: cci-ont-releasetrain-api.zip
+            path: ./releasetrain-api/
+            label: 'Versão completa buildada da API'
+          - name: cas.war
+            path: legradle/build/libs/
+    jenkins:  
+        - name: cas.war
+          path: legradle/build/libs/
+        - name: sso.jar
+          path: springboot/target/
+folders:
+  - name: releasetrain-api
+    configuration:    
+      project:
+          name: cci-ont-releasetrain-api
+          type: node
+      docker:
+          alwaysLatest: true
+          dockerfile: Dockerfile  
+          tags:
+              - teste
+  - name: dockernode12 
+    configuration:
+      project:
+          name: cci-ont-releasetrain-docker-node
+          type: docker 
+      docker:
+          alwaysLatest: true
+          dockerfile: ./src/Dockerfile
+          tags:
+              - 12
 
-- folder: releasetrain-api
-  configuration:    
-    project:
-        name: cci-ont-releasetrain-api
-        type: node
-    docker:
-        alwaysLatest: true
-        dockerfile: Dockerfile  
-        tags:
-            - teste
-    artifacts: 
-        github:
-            - name: cci-ont-releasetrain-api.zip
-              path: ./
-              label: 'Versão completa buildada da API'
+  - name: legradle
+    configuration:
+      project:
+          name: caszinho
+          type: gradle    
+      container:
+        image: gradle:jdk11
+      docker: 
+          alwaysLatest: true
+          dockerfile: Dockerfile
+          tags:
+              - casGradle1      
+  
+  - name: springboot
+    configuration:    
+      project:
+          name: ss0
+          type: maven
+      docker:
+          alwaysLatest: true
+          dockerfile: Dockerfile 
+          tags:
+              - xablau
+              - xablau2
+      artifacts: 
+          jenkins:
 
-- folder: dockernode12 
-  configuration:
-    project:
-        name: cci-ont-releasetrain-docker-node
-        type: docker
-    docker:
-        alwaysLatest: true
-        dockerfile: ./src/Dockerfile
-        tags:
-            - 12
-
-            
+              - name: version.txt
+                path: ./
+          github:
+              - name: sso.jar
+                path: target/
+              - name: version.txt
+                path: ./
