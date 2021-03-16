@@ -1,4 +1,15 @@
-artifacts: 
+pipeline:
+    environment:
+        RELEASE_TRAIN: 1
+    pullrequest:
+        default:
+            conditions:
+                branch_source: null
+                branch_destination: null
+            steps:
+                - step: shellcheck
+                - step: filenameCheck
+    artifacts: 
     github:
         assets:
           - name: cci-ont-releasetrain-api.zip
@@ -11,59 +22,19 @@ artifacts:
           path: legradle/build/libs/
         - name: sso.jar
           path: springboot/target/
-folders:
-  - name: releasetrain-api
-    configuration:    
-      project:
-          name: cci-ont-releasetrain-api
-          type: node
-      docker:
-          alwaysLatest: true
-          dockerfile: Dockerfile  
-          tags:
-              - teste
-  - name: dockernode12 
-    configuration:
-      project:
-          name: cci-ont-releasetrain-docker-node
-          type: docker 
-      docker:
-          alwaysLatest: true
-          dockerfile: ./src/Dockerfile
-          tags:
-              - 12
-
-  - name: legradle
-    configuration:
-      project:
-          name: caszinho
-          type: gradle    
-      container:
-        image: gradle:jdk11
-      docker: 
-          alwaysLatest: true
-          dockerfile: Dockerfile
-          tags:
-              - casGradle1      
-  
-  - name: springboot
-    configuration:    
-      project:
-          name: ss0
-          type: maven
-      docker:
-          alwaysLatest: true
-          dockerfile: Dockerfile 
-          tags:
-              - xablau
-              - xablau2
-      artifacts: 
-          jenkins:
-
-              - name: version.txt
-                path: ./
-          github:
-              - name: sso.jar
-                path: target/
-              - name: version.txt
-                path: ./
+    projects:
+      - name: caszinho
+        folder: ./legradle
+        template: gradle
+        definition:
+           environment:
+              GRADLE_BIN: ./gradlew
+           container:
+              image: gradle:jdk11
+           
+      - name: cci-ont-releasetrain-api
+        folder: releasetrain-api
+        template: node
+      - name: ss0
+        folder: ./springboot
+        template: maven
