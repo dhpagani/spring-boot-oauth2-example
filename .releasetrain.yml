@@ -1,27 +1,19 @@
 pipeline:
     environment:
-        RELEASE_TRAIN: 1
-    pullrequest:
-        default:
-            conditions:
-                branch_source: null
-                branch_destination: null
-            steps:
-                - step: shellcheck
-                - step: filenameCheck
+        RELEASE_TRAIN: 1    
     artifacts: 
-    github:
-        assets:
-          - name: cci-ont-releasetrain-api.zip
-            path: ./releasetrain-api/
-            label: 'Versão completa buildada da API'
+      github:
+          assets:
+            - name: cci-ont-releasetrain-api.zip
+              path: ./releasetrain-api/
+              label: 'Versão completa buildada da API'
+            - name: cas.war
+              path: legradle/build/libs/
+      jenkins:  
           - name: cas.war
             path: legradle/build/libs/
-    jenkins:  
-        - name: cas.war
-          path: legradle/build/libs/
-        - name: sso.jar
-          path: springboot/target/
+          - name: sso.jar
+            path: springboot/target/
     projects:
       - name: caszinho
         folder: ./legradle
