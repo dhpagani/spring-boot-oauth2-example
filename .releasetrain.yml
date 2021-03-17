@@ -11,7 +11,8 @@ pipeline:
               label: 'Versão completa buildada da API'
             - name: cas.war
               path: legradle/build/libs/
-      jenkins:  
+      jenkins:
+          assets:         
           - name: cas.war
             path: legradle/build/libs/
           - name: sso.jar
