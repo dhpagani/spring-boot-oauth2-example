@@ -26,7 +26,7 @@ pipeline:
               GRADLE_BIN: ./gradlew
            container:
               image: gradle:jdk11
-           pre_scripts: chmod +x ./gradlew           
+           pre_scripts: chmod +x ./gradlew            
       - name: cci-ont-releasetrain-api
         folder: releasetrain-api
         template: node
