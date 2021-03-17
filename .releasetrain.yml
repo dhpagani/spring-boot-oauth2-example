@@ -4,7 +4,7 @@ pipeline:
     artifacts: 
       github:
           condition:
-            branch_name: ^teste2$
+            branch_name: ^v[0-9.\-]+$
           assets:
             - name: cci-ont-releasetrain-api.zip
               path: ./releasetrain-api/
