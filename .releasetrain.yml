@@ -32,7 +32,18 @@ pipeline:
         template: node
       - name: ss0
         folder: ./springboot
-        template: maven
+        template: 
+          - maven
+          - docker
+        docker:
+          - condition: 
+              branch_name: ^teste2$
+            repository: projects
+            imageName: sso-test
+            projectVersionAsTag: true
+            tags:
+              - sso-teste
+              - latest
       - name: cci-ont-releasetrain-docker-node
         folder: ./dockernode12
         template: docker
