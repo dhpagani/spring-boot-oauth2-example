@@ -1,0 +1,37 @@
+pipeline:
+    environment:
+        RELEASE_TRAIN: 1    
+    artifacts: 
+      github:
+          condition:
+            branch_name: ^v[0-9.\-]+$
+          assets:
+            - name: cci-ont-releasetrain-api.zip
+              path: ./releasetrain-api/
+              label: 'Versão completa buildada da API'
+            - name: cas.war
+              path: legradle/build/libs/
+      jenkins:
+          assets:         
+          - name: cas.war
+            path: legradle/build/libs/
+          - name: sso.jar
+            path: springboot/target/
+    projects:      
+      - name: cci-ont-releasetrain-docker-node
+        folder: ./dockernode12
+        template: docker
+        docker:
+            - condition: 
+                branch_name: ^teste2$
+              repository: releasetrain
+              imageName: cci-ont-releasetrain-docker-node
+              tags:
+                - 12
+                - latest
+            - condition: 
+                branch_name: ^master$
+              repository: releasetrain
+              imageName: cci-ont-releasetrain-docker-node
+              tags:
+                - 12-master
