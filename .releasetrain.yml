@@ -27,7 +27,7 @@ pipeline:
           - condition: 
               branch_name: ^teste2$
             repository: projects
-            imageName: sso-test
+            imageName: sso-test 
             projectVersionAsTag: true
             tags:
               - sso-teste
