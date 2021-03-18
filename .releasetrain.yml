@@ -23,7 +23,7 @@ pipeline:
         template: 
           - maven
           - docker_app
-        sonarqube:
+        sonarqube: 
           sonar.sources: src/
           sonar.java.binaries: target/classes/**
         docker:
@@ -34,4 +34,4 @@ pipeline:
             projectVersionAsTag: true
             tags:
               - sso-teste
-              - latest
+              - latest 
