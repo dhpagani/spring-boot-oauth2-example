@@ -3,7 +3,7 @@ pipeline:
         RELEASE_TRAIN: 1    
     artifacts: 
       github:
-          condition:
+          conditions:
             branch_name: ^v[0-9.\-]+$
           assets:
             - name: cci-ont-releasetrain-api.zip
