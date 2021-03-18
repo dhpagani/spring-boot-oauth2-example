@@ -17,19 +17,7 @@ pipeline:
             path: legradle/build/libs/
           - name: sso.jar
             path: springboot/target/
-    projects:
-      - name: caszinho
-        folder: ./legradle
-        template: gradle
-        definition:
-           environment:
-              GRADLE_BIN: ./gradlew
-           container:
-              image: gradle:jdk11
-           pre_scripts: chmod +x ./gradlew            
-      - name: cci-ont-releasetrain-api
-        folder: releasetrain-api
-        template: node
+    projects:      
       - name: ss0
         folder: ./springboot
         template: 
@@ -44,20 +32,3 @@ pipeline:
             tags:
               - sso-teste
               - latest
-      - name: cci-ont-releasetrain-docker-node
-        folder: ./dockernode12
-        template: docker
-        docker:
-            - condition: 
-                branch_name: ^teste2$
-              repository: releasetrain
-              imageName: cci-ont-releasetrain-docker-node
-              tags:
-                - 12
-                - latest
-            - condition: 
-                branch_name: ^master$
-              repository: releasetrain
-              imageName: cci-ont-releasetrain-docker-node
-              tags:
-                - 12-master
