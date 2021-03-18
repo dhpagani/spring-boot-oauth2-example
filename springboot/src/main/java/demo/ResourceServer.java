@@ -6,6 +6,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 
 public class ResourceServer {
+	  private int a, b;
 	@Configuration
 	@EnableResourceServer
 	public static class OAuth2LoginSecurityConfig extends WebSecurityConfigurerAdapter {
@@ -14,6 +15,7 @@ public class ResourceServer {
 			
 			http.authorizeRequests().anyRequest().authenticated();
 
+int c; int d;
 			System.out.println("xablau");
 		}
 	}

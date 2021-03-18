@@ -30,7 +30,7 @@ pipeline:
           sonar.sources: src/
           sonar.java.binaries: target/classes/**
         docker:
-          - condition: 
+          - conditions: 
               branch_name: ^teste2$
             repository: projects
             imageName: sso-test 
