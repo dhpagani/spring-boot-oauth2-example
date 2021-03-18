@@ -4,7 +4,7 @@ pipeline:
     artifacts: 
       github:
           conditions:
-            branch_name: ^v[0-9.\-]+$
+            branch_regex: ^v[0-9.\-]+$
           assets:
             - name: cci-ont-releasetrain-api.zip
               path: ./releasetrain-api/
@@ -31,7 +31,7 @@ pipeline:
           sonar.java.binaries: target/classes/**
         docker:
           - conditions: 
-              branch_name: ^teste2$
+              branch_regex: ^teste2$
             repository: projects
             imageName: sso-test 
             projectVersionAsTag: true
