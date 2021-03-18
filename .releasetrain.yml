@@ -22,7 +22,7 @@ pipeline:
         folder: ./springboot
         template: 
           - maven
-          - docker
+          - docker_app
         docker:
           - condition: 
               branch_name: ^teste2$
