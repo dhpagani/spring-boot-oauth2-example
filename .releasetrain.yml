@@ -23,6 +23,9 @@ pipeline:
         template: 
           - maven
           - docker_app
+        sonarqube:
+          sonar.sources: src/
+          sonar.java.binaries: target/classes/**
         docker:
           - condition: 
               branch_name: ^teste2$
