@@ -23,6 +23,9 @@ pipeline:
         template: 
           - maven
           - docker_app
+        maven:
+          container:
+            image: maven:3-openjdk-11 
         sonarqube: 
           sonar.sources: src/
           sonar.java.binaries: target/classes/**
