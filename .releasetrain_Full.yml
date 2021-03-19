@@ -3,8 +3,8 @@ pipeline:
         RELEASE_TRAIN: 1    
     artifacts: 
       github:
-          conditions:
-            branch_regex: ^v[0-9.\-]+$
+          condition:
+            branch_name: ^v[0-9.\-]+$
           assets:
             - name: cci-ont-releasetrain-api.zip
               path: ./releasetrain-api/
@@ -21,15 +21,12 @@ pipeline:
       - name: caszinho
         folder: ./legradle
         template: gradle
-        override:
-          gradle:        
-            environment:
-                GRADLE_BIN: ./gradlew
-            container:
-                image: gradle:jdk11
-            stages:
-              download_dependencies:              
-                pre_scripts: chmod +x ./gradlew       
+        definition:
+           environment:
+              GRADLE_BIN: ./gradlew
+           container:
+              image: gradle:jdk11
+           pre_scripts: chmod +x ./gradlew            
       - name: cci-ont-releasetrain-api
         folder: releasetrain-api
         template: node
@@ -37,32 +34,23 @@ pipeline:
         folder: ./springboot
         template: 
           - maven
-          - docker_app
-        override:
-          maven:
-            container:
-              image: maven:3-openjdk-11 
-        sonarqube: 
-          sonar.sources: src/
-          sonar.java.binaries: target/classes/**
+          - docker
         docker:
-          - conditions: 
-              branch_regex: ^teste2$
+          - condition: 
+              branch_name: ^teste2$
             repository: projects
-            imageName: sso-test 
+            imageName: sso-test
             projectVersionAsTag: true
             tags:
               - sso-teste
-              - latest 
+              - latest
       - name: cci-ont-releasetrain-docker-node
         folder: ./dockernode12
-        template: docker_image
-        sonarqube:
-          enabled: false
+        template: docker
         docker:
             - condition: 
                 branch_name: ^teste2$
-              repository: projects
+              repository: releasetrain
               imageName: cci-ont-releasetrain-docker-node
               tags:
                 - 12
