@@ -3,7 +3,7 @@ on: [push]
 jobs:
   buildspring:
     container:
-        image: java:11
+        image: openjdk:11
     runs-on: self-hosted
     steps:
       - uses: actions/checkout@v2
