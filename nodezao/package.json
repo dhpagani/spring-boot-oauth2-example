@@ -34,7 +34,7 @@
     "@octokit/rest": "^18.0.9",
     "@octokit/types": "^6.6.0",
     "class-transformer": "^0.3.1",
-    "class-validator": "^0.13.1",
+    "class-validator": "^0.14.0",
     "oracledb": "^5.0.0",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
